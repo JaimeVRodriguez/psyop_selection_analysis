@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 def read_excel_files(filepath, filenames):
     dfs = []
@@ -20,14 +21,30 @@ def flt_to_int(df, column):
     df[column] = df[column].astype(int)
     return df
 
-def clean_data(filepath, filenames, columnsB):
+def clean_data(filepath, filenames, columns):
 
     df = read_excel_files(filepath, filenames)
     df = binary_language(df)
     drop_na_values(df)
-    for i in columnsB:
+    for i in columns:
         df = flt_to_int(df, i)
     return df
+
+
+def equal_column_val(df, column, value):
+    result = df[df[column] == value]
+    return result
+
+def not_column_val(df, column, value):
+    result = df[df[column] != value]
+    return result
+
+def bar_plot(data, labels, title, ylabel):
+    fig, ax = plt.subplots()
+    ax.bar(labels, data)
+    ax.set_title(title, loc='left', size=18, fontweight='bold')
+    ax.set_ylabel(ylabel)
+
 
 
 
@@ -44,7 +61,6 @@ if __name__ == '__main__':
 
     sfas = clean_data(filepath2, filenames2)
     print(sfas)
-    sfas.to_excel('merged.xlsx', index=False)
 
 
 
