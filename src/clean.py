@@ -13,6 +13,11 @@ def binary_language(df):
     df.LANG = (df.LANG.notna() & df.LANG.ne("")).astype(int)
     return df
 
+def binary_result(df):
+    val_to_replace = ['SELECTED']
+    df.CODE = df.RESULT.apply(lambda x: 1 if x in val_to_replace else 0)
+    return df
+
 def binary_TF(df):
     df.replace({'F': 0, 'T': 1}, inplace=True)
     return df
@@ -29,6 +34,7 @@ def clean_data(filepath, filenames, columns, group):
 
     df = read_excel_files(filepath, filenames)
     df = binary_language(df)
+    df = binary_result(df)
     df = binary_TF(df)
     drop_na_values(df)
     for i in columns:
@@ -47,5 +53,5 @@ if __name__ == '__main__':
 
     # poas = clean_data(filepath, filenames, ['RACE', 'SEC', 'AB', 'RGR', 'PT', 'DEP', 'AGE', 'EL', 'SC', 'CO', 'FA', 'ST' ], ['DEP', 'PT', 'AGE', 'EL', 'SC', 'CO', 'FA', 'ST'] )
 
-    sfas = clean_data(filepath2, filenames2, columns)
+    sfas = clean_data(filepath2, filenames2, columns, 'SFAS')
     print(sfas)
