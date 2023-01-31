@@ -10,6 +10,7 @@ TO BE OR NOT TO BE SELECTED
 - [Overview](#overview)
     - [Results by Age](#age)
     - [Key Features](#key-features)
+- [Correlation](#correlation)
 <br />
 <br />
 <br />
@@ -41,11 +42,71 @@ Due to the aggregation process of this data, there were several human errors and
 <span style='color:green'> **Key Highlights** </span> <br />
 - **~2635** individuals attended POAS
     - 748 selected: **28.3%** Select Rate
+    - Average Age: 
 - **~8116** individuals attended SFAS
     - 1363 selected: **16.8%** Select Rate
 
+<p float='left'>
+    <img src='images/poas_selects.png' width='500' />
+    <img src='images/poas_annual.png' width='500' />
+</p>
 
-GT Score Numbers
+<p float='left'>
+    <img src='images/sfas_selects.png' width='500' />
+    <img src='images/sfas_annual.png' width='500' />
+</p>
+<br />
+<br />
+<br />
+
+### Age
+<span style='color:green'> **Key Highlights** </span> <br />
+- POAS
+    - Average age of **28.5**
+- SFAS
+    - Average age of **29**
+
+<p float='left'>
+    <img src='images/poas_select_age.png' width='500' />
+    <img src='images/sfas_select_age.png' width='500' />
+</p>
+<br />
+<br />
+<br />
+
+### Key Features
+<span style='color:green'> **Key Highlights** </span> <br />
+- POAS
+    - PT Median score of **271**
+    - GT Median score of **117**
+    - CO Median score of **117**
+- SFAS
+    - PT Median score of **285**
+    - GT Median score of **117**
+    - CO Median score of **117**
+
+- POAS CO Q3 matched that of SFAS at **124**
+
+<p float='left'>
+    <img src='images/pt_scores.png' width='325' />>
+    <img src='images/gt_scores.png' width='325' />
+    <img src='images/co_scores.png' width='325' />
+</p>
+<br />
+<br />
+<br />
+
+***
+## ***Correlation***
+***
+
+![](images/correlation.png)
+
+NULL = features have no determination if someone is selected
+ALT = features determine if someone is selected
+
+
+<!-- GT Score Numbers
 POAS 
 Q1 - 111
 Median - 117
@@ -76,6 +137,6 @@ Q3 - 124
 SF
 Q1 - 111
 Median - 117
-Q3 - 124
+Q3 - 124 -->
 
 
