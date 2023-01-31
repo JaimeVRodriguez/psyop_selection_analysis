@@ -40,9 +40,9 @@ Due to the aggregation process of this data, there were several human errors and
 ***
 <span style='color:green'> **Key Highlights** </span> <br />
 - **~2635** individuals attended POAS
-    - **28.3%** Select Rate
+    - 748 selected: **28.3%** Select Rate
 - **~8116** individuals attended SFAS
-    - **14.2%** Select Rate
+    - 1363 selected: **16.8%** Select Rate
 
 
 GT Score Numbers

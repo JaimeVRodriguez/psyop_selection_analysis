@@ -18,5 +18,3 @@ def annual_total(df):
 
 
 
-
-

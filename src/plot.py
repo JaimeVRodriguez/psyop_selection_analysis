@@ -38,4 +38,12 @@ def violin_plot(x, y, data, title, xlabel, ylabel):
     ax.set_title(title, loc='left', size=18, fontweight='bold')
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
+
+def select_correlation(df, title, xlabel, ylabel):
+    corr_matrix = df.corr().loc[:, ['CODE']]
+    fig, ax = plt.subplots()
+    sns.heatmap(corr_matrix, annot=True, ax=ax)
+    ax.set_title(title, loc='left', size=18, fontweight='bold')
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel)
     
