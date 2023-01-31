@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import seaborn as sns
 
+import functions
+
 def select_bar_plot(data, labels, title, ylabel):
     fig, ax = plt.subplots()
     ax.bar(labels, data)
@@ -10,6 +12,15 @@ def select_bar_plot(data, labels, title, ylabel):
     ax.set_ylabel(ylabel)
     for i, v in enumerate(data):
         ax.text(i, v + 35, str(v), ha='center')
+
+def annual_line_plot(df, title, xlabel, ylabel):
+    ser = functions.annual_total(df)
+    fig, ax = plt.subplots()
+    ax.plot(ser.index, ser.values, marker='o')
+    ax.set_title(title, loc='left', size=18, fontweight='bold')
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel)
+
 
 def age_bar_plot(x, y, title, xlabel, ylabel, mean, high):
     fig, ax = plt.subplots()

@@ -1,6 +1,81 @@
-# psyop_selection_analysis
-Exploratory and Statistical Analysis on PSYOP Assessment and Selection
+# Special Operations Forces Selection and Assessment
+TO BE OR NOT TO BE SELECTED
+
+***
+<br />
+
+## Table of Contents
+- [Introduction](#introduction)
+- [Data Processing](#data-processing)
+- [Overview](#overview)
+    - [Results by Age](#age)
+    - [Key Features](#key-features)
+<br />
+<br />
+<br />
+
+***
+## **Introduction**
+***
+This data is comprised of 12 different excel files spanning 6 years of selection and assesment results for the Special Operations (SOF) fields of Special Forces (SF) and Psychological Operations (PSYOP). The data is aggreted through a series of people from the application and selection process for these SOF fields. 
+<br />
+<br />
+<br />
+
+***
+## **Data Processing**
+***
+Due to the aggregation process of this data, there were several human errors and difference in much of the data. Several steps where needed in the data cleaning process.
+
+- 19 columns were removed
+    - Personal Data: Personal Identifiable Information such as name, DOB, SSN's, etc were removed in order to not identify individuals as well as comply with Special Operations personal identity policies.
+    - Additional columns were deemd unneeded for the purposes of this analyis. These columns were either additional non-identifiable personal information or information that related specifically to selection and not to the individuals attending selection
+- Missing Information
+    - Records no containing all information pertained to an individual were removed in order to non alter or skew the data
+    - 16 POAS Records removed
+    - 231 SFAS Records removed
+
+***
+## ***Overview***
+***
+<span style='color:green'> **Key Highlights** </span> <br />
+- **~2635** individuals attended POAS
+    - **28.3%** Select Rate
+- **~8116** individuals attended SFAS
+    - **14.2%** Select Rate
 
 
-POAS - start: 2651 finish: 2635
-SFAS - start: 8347 finish: 8116
+GT Score Numbers
+POAS 
+Q1 - 111
+Median - 117
+Q3 - 126
+
+SF
+Q1 - 112
+Median - 117
+Q3 - 124
+
+PT Score Numbers
+POAS 
+Q1 - 256
+Median - 271
+Q3 - 287
+
+SF
+Q1 - 271
+Median - 285
+Q3 - 297
+
+CO Score Numbers
+POAS 
+Q1 - 109
+Median - 117
+Q3 - 124
+
+SF
+Q1 - 111
+Median - 117
+Q3 - 124
+
+
