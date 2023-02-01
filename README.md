@@ -11,6 +11,9 @@ TO BE OR NOT TO BE SELECTED
     - [Results by Age](#age)
     - [Key Features](#key-features)
 - [Correlation](#correlation)
+- [Hypothesis](#hypothesis)
+    - [Distribution](#distribution)
+    - [T-Test](#t-test)
 <br />
 <br />
 <br />
@@ -101,9 +104,33 @@ Due to the aggregation process of this data, there were several human errors and
 ***
 
 ![](images/correlation.png)
+<br />
+<br />
+<br />
 
-NULL = features have no determination if someone is selected
-ALT = features determine if someone is selected
+***
+## ***Hypthesis***
+***
+$H_O$: No single feature determines wether someone is selected <br />
+$H_A$: Certain features determines wether someone is selected
+<br />
+<br />
+<br />
+
+### Distribution
+
+![](images/distributions.png)
+
+
+### T-Test
+T-Test conducted on features based on whether or not an individual was selected.
+
+The following are the p-values with their corresponding feature: <br />
+GT: **2.5269360674271627e-40** <br />
+PT: **7.822031090768901e-09** <br />
+AGE: **4.113012469721914e-06** <br />
+LANG: **0.6882465259249742** <br />
+
 
 
 <!-- GT Score Numbers
