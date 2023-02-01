@@ -26,8 +26,8 @@ def combined(df_list):
     return df
 
 def split_combined(df):
-    df1 = df.loc[df.CODE == 1]
-    df2 = df.loc[df.CODE == 0]
+    df1 = df.loc[df.CODE == 0]
+    df2 = df.loc[df.CODE == 1]
     return df1, df2
 
 
