@@ -91,7 +91,7 @@ Due to the aggregation process of this data, there were several human errors and
 - POAS CO Q3 matched that of SFAS at **124**
 
 <p float='left'>
-    <img src='images/pt_scores.png' width='325' />>
+    <img src='images/pt_scores.png' width='325' />
     <img src='images/gt_scores.png' width='325' />
     <img src='images/co_scores.png' width='325' />
 </p>
