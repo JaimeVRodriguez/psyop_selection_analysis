@@ -109,10 +109,10 @@ Due to the aggregation process of this data, there were several human errors and
 <br />
 
 ***
-## ***Hypthesis***
+## ***Hypothesis***
 ***
-$H_O$: No single feature determines wether someone is selected <br />
-$H_A$: Certain features determines wether someone is selected
+$H_O$: No single feature determines whether someone is selected <br />
+$H_A$: Certain features determines whether someone is selected
 <br />
 <br />
 <br />

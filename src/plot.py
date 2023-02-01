@@ -54,7 +54,7 @@ def distributions(df1, df2):
         row = i//3
         col = i % 3
         ax[row][col].hist(df1[feature], color='orange', alpha=1, label='Selected')
-        ax[row][col].hist(df2[feature], color='b', alpha=.6, label='Not Selected')
+        ax[row][col].hist(df2[feature], color='b', alpha=.7, label='Not Selected')
         ax[row][col].set_title(feature)
     fig.tight_layout()
     

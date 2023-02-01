@@ -21,6 +21,16 @@ def ttest(df1, df2, columns):
         tests.append(val)
     return tests
 
+def combined(df_list):
+    df = pd.concat(df_list, axis=0, ignore_index=True)
+    return df
+
+def split_combined(df):
+    df1 = df.loc[df.CODE == 1]
+    df2 = df.loc[df.CODE == 0]
+    return df1, df2
+
+
 def pvalues(test_list):
     columns = ['GT', 'PT', 'AGE', 'LANG']
     pvals = {}
