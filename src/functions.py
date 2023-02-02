@@ -1,6 +1,8 @@
 import pandas as pd
 import scipy.stats as stats
+from sklearn.model_selection import train_test_split
 
+seed = 8
 
 def equal_column_val(df, column, value):
     result = df[df[column] == value]
@@ -38,6 +40,10 @@ def pvalues(test_list):
         pvals[col] = i[1]
          
     return pvals 
+
+def train_split(X, y, test_size=.2, seed=seed):
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.2, stratify=y, random_state=seed)
+    return X_train, X_test, y_train, y_test
 
 
 
