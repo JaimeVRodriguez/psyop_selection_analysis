@@ -48,7 +48,6 @@ Due to the aggregation process of this data, there were several human errors and
 <span style='color:green'> **Key Highlights** </span> <br />
 - **~2635** individuals attended POAS
     - 748 selected: **28.3%** Select Rate
-    - Average Age: 
 - **~8116** individuals attended SFAS
     - 1363 selected: **16.8%** Select Rate
 
