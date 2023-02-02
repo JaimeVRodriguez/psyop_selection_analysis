@@ -1,4 +1,4 @@
-# Special Operations Forces Selection and Assessment
+# Special Operations Forces Assessment and Selection 
 TO BE OR NOT TO BE SELECTED
 
 ***
@@ -38,7 +38,7 @@ Due to the aggregation process of this data, there were several human errors and
     - Personal Data: Personal Identifiable Information such as name, DOB, SSN's, etc were removed in order to not identify individuals as well as comply with Special Operations personal identity policies.
     - Additional columns were deemd unneeded for the purposes of this analyis. These columns were either additional non-identifiable personal information or information that related specifically to selection and not to the individuals attending selection
 - Missing Information
-    - Records no containing all information pertained to an individual were removed in order to non alter or skew the data
+    - Records not containing all information pertained to an individual were removed in order to non alter or skew the data
     - 16 POAS Records removed
     - 231 SFAS Records removed
 
