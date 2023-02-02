@@ -22,14 +22,15 @@ def annual_line_plot(df, title, xlabel, ylabel):
     ax.set_ylabel(ylabel)
 
 
-def age_bar_plot(x, y, title, xlabel, ylabel, mean, high):
+def age_bar(ser1, ser2, x, y, title, xlabel, ylabel):
     fig, ax = plt.subplots()
-    ax.bar(x, y)
+    ax.bar(ser2[x], ser2[y], alpha=.5, label='SFAS')
+    ax.bar(ser1[x], ser1[y], label='POAS')
     ax.set_title(title, loc='left', size=18, fontweight='bold')
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
-    ax.axvline(mean, color='black', linestyle='--', linewidth=1, label=f'Average Age: {mean}')
-    ax.axvline(high, color='grey', linestyle='--', linewidth=1, label=f'Most Selected Age: {high}')
+    ax.axvline(ser2[x].mean(), color='black', label=f'SFAS average Age: {ser2[x].mean()}')
+    ax.axvline(ser1[x].mean(), color='black', linestyle='--', label=f'POAS average Age: {ser1[x].mean()}')
     ax.legend()
 
 def violin_plot(x, y, data, title, xlabel, ylabel):
