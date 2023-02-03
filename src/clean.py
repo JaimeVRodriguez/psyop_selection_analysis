@@ -31,7 +31,6 @@ def flt_to_int(df, column):
     return df
 
 def clean_data(filepath, filenames, columns, group):
-
     df = read_excel_files(filepath, filenames)
     df = binary_language(df)
     df = binary_result(df)
