@@ -2,6 +2,8 @@ import pandas as pd
 import scipy.stats as stats
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import Normalizer
+from sklearn.feature_selection import RFE
+from sklearn.linear_model import LogisticRegression
 
 
 def equal_column_val(df, column, value):
@@ -71,6 +73,26 @@ def return_x_y(df, target):
     X2 = Normalizer().fit_transform(X)
     y = df[target]
     return X, X2, y
+
+def significant_features(df, target):
+    '''This function takes in a DataFrame (df) and a target 
+    column name (target). It creates two sets of data: X which 
+    is all columns in the df except for the target column, and 
+    y which is only the target column. The function then trains 
+    a logistic regression model using the X data and the y data, 
+    and uses the Recursive Feature Elimination (RFE) method to 
+    determine the most significant features. RFE is used to select 
+    the most important features by repeatedly fitting the model 
+    and removing the least important feature until the desired number 
+    of features is reached. The function returns the selected features 
+    in the form of a list of column names.'''
+    X = df.drop(target, axis=1)
+    y = df[target]
+    model = LogisticRegression(solver='lbfgs')
+    rfe = RFE(model)
+    rfe = rfe.fit(X, y)
+    selected_features = X.columns[rfe.support_]
+    return selected_features
 
 
 
