@@ -141,6 +141,15 @@ LANG: **0.6882465259249742** <br />
 ## ***Logistic Model***
 ***
 **POAS** <br />
+### Key Features
+<span style='color:green'> **Key Highlights** </span> <br />
+5 most important features
+- Whether someone is **Airborne** qualified
+- **GT** Score
+- **SC** Score
+- Whether someone needed a **Waiver**
+- Someones **AGE**
+
 Single Logistic Regression Model PSYOP <br />
 ![](images/models/poas_single_curve.png)
 <br />

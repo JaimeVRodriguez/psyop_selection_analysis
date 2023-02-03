@@ -60,8 +60,7 @@ def multiple_regression_model(X, y, n_splits, title):
         accuracy.append(accuracy_score(y_fold_test, y_pred))
         precision.append(precision_score(y_fold_test, y_pred))
         recall.append(recall_score(y_fold_test, y_pred))
-    
-
+        
         counter += 1
 
     avg_accuracy = np.max(accuracy)*100
