@@ -5,6 +5,10 @@ from sklearn.model_selection import train_test_split
 seed = 8
 
 def equal_column_val(df, column, value):
+    '''This function takes a dataframe df, a column name column, 
+    and a value value as inputs. It returns a new dataframe that 
+    contains only the rows from the original dataframe where the 
+    value in the specified column is equal to the input value.'''
     result = df[df[column] == value]
     return result
 
@@ -44,6 +48,14 @@ def pvalues(test_list):
 def train_split(X, y, test_size=.2, seed=seed):
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.2, stratify=y, random_state=seed)
     return X_train, X_test, y_train, y_test
+
+def new_labels(df, new_labels):
+    df.rename(columns=new_labels, inplace=True)
+    return df
+
+def replace_vals(df, column, new_vals):
+    df[column] = df[column].replace(new_vals)
+
 
 
 
