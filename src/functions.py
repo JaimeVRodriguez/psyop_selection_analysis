@@ -13,14 +13,24 @@ def equal_column_val(df, column, value):
     return result
 
 def not_column_val(df, column, value):
+    '''This function takes a dataframe df, a column name column, 
+    and a value value as inputs. It returns a new dataframe that 
+    contains only the rows from the original dataframe where the 
+    value in the specified column is not equal to the input value.'''
     result = df[df[column] != value]
     return result
 
 def annual_total(df):
+    '''This function takes a dataframe df as input and returns a pandas 
+    series that groups the CODE column by the YEAR column and counts the 
+    number of unique values in each group.'''
     ser = df.CODE.groupby(df.YEAR).count()
     return ser
 
 def ttest(df1, df2, columns):
+    '''This function takes two dataframes df1 and df2 and a list of column 
+    names columns as inputs. It performs a two-sample independent t-test for 
+    each column in the list and returns a list of t-test results.'''
     tests = []
     for i in columns:
         val = stats.ttest_ind(df1[i], df2[i], equal_var=False)
