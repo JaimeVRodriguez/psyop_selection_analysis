@@ -5,6 +5,8 @@ from sklearn.preprocessing import Normalizer
 from sklearn.feature_selection import RFE
 from sklearn.linear_model import LogisticRegression
 
+seed = 16486415
+
 
 def equal_column_val(df, column, value):
     '''This function takes a dataframe df, a column name column, 
@@ -93,6 +95,25 @@ def significant_features(df, target):
     rfe = rfe.fit(X, y)
     selected_features = X.columns[rfe.support_]
     return selected_features
+
+def drop_unwanted_columns(df, cols):
+    '''drop_unwanted_columns: This function takes in a DataFrame (df) 
+    and a list of desired column names (cols). It first determines 
+    which columns are unwanted, which are all columns in the df except 
+    for the ones in the cols list. The function then drops the unwanted 
+    columns from the DataFrame using the drop method and modifies the 
+    original df in place. The function returns the modified df.'''
+    unwanted_cols = set(df.columns) - set(cols)
+    df.drop(unwanted_cols, axis=1, inplace=True)
+    return df
+
+def sig_feature_split(df, target):
+    sig_features = list(significant_features(df, target))
+    sig_features.append(target)
+    refined_df = drop_unwanted_columns(df, sig_features)
+    X, X2, y = return_x_y(refined_df, target)
+    X_test, X_train, y_test, y_train = train_split(X2, y)
+    return X_test, X_train, y_test, y_train
 
 
 
