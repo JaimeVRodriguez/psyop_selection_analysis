@@ -1,8 +1,8 @@
 import pandas as pd
 import scipy.stats as stats
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import Normalizer
 
-seed = 8
 
 def equal_column_val(df, column, value):
     '''This function takes a dataframe df, a column name column, 
@@ -66,7 +66,11 @@ def new_labels(df, new_labels):
 def replace_vals(df, column, new_vals):
     df[column] = df[column].replace(new_vals)
 
-
+def return_x_y(df, target):
+    X = df.drop(target, axis=1)
+    X2 = Normalizer().fit_transform(X)
+    y = df[target]
+    return X, X2, y
 
 
 

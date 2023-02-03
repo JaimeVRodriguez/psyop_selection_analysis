@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 
 from sklearn.linear_model import LogisticRegression
@@ -6,10 +7,6 @@ from sklearn.metrics import roc_curve, accuracy_score, precision_score, recall_s
 from sklearn.model_selection import train_test_split, KFold
 from sklearn.preprocessing import Normalizer
 
-import pandas as pd
-from sklearn.feature_selection import RFE, SelectKBest, f_classif
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.linear_model import LogisticRegression
 seed = 16486415
 
 def regression_model(X_train, X_test, y_train, y_test, title, subtitle=None):
