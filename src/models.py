@@ -10,6 +10,31 @@ from sklearn.preprocessing import Normalizer
 seed = 16486415
 
 def regression_model(X_train, X_test, y_train, y_test, title, subtitle=None):
+    '''The function regression_model is a helper function to train 
+    a logistic regression model and visualize its performance through 
+    a Receiver Operating Characteristic (ROC) curve and performance 
+    metrics. It takes in the following parameters:
+
+    X_train: The training data set for the independent variables.
+    X_test: The testing data set for the independent variables.
+    y_train: The training data set for the dependent variable.
+    y_test: The testing data set for the dependent variable.
+    title: The title of the plot.
+    subtitle (optional): The subtitle of the plot.
+    
+    The function trains a logistic regression model using the training 
+    data set, and calculates the predicted probabilities for the testing 
+    data set. Then, the mean of the predicted probabilities is set as the 
+    threshold value. Based on the threshold value, binary predictions are 
+    made for the testing data set.
+
+    The ROC curve is then plotted using the roc_curve function from the 
+    scikit-learn library and the Area Under the Curve (AUC) score is calculated 
+    using the auc function. The ROC curve and the AUC score are annotated on 
+    the plot.
+
+    Finally, performance metrics such as accuracy, precision, and recall are 
+    calculated and annotated on the plot.'''
     model = LogisticRegression(random_state=seed).fit(X_train, y_train)
 
     y_probs = model.predict_proba(X_test)
@@ -34,6 +59,25 @@ def regression_model(X_train, X_test, y_train, y_test, title, subtitle=None):
     plt.annotate(f'Test recall: {recall:.2f}', (0.65, 0.05), xycoords='axes fraction')
 
 def multiple_regression_model(X, y, n_splits, title):
+    '''    The function multiple_regression_model is similar to 
+    the regression_model function but performs k-fold cross-validation 
+    on the training data set. The function takes in the following parameters:
+
+    X: The data set for the independent variables.
+    y: The data set for the dependent variable.
+    n_splits: The number of folds for the cross-validation.
+    title: The title of the plot.
+    The function first normalizes the input data and splits the data 
+    into training and testing sets. Then, k-fold cross-validation is 
+    performed on the training data set, where in each iteration the data 
+    is further split into training and testing sets. A logistic regression 
+    model is trained on the training data set and performance metrics and 
+    the ROC curve are calculated for the testing data set. This process is 
+    repeated for n_splits number of folds.
+
+    Finally, the average accuracy, precision, and recall over all the folds 
+    are calculated and annotated on the plot, along with the fold number with 
+    the maximum accuracy.'''
     X = X.values
     y = y.values
     X = Normalizer().fit_transform(X)
