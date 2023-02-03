@@ -14,6 +14,7 @@ TO BE OR NOT TO BE SELECTED
 - [Hypothesis](#hypothesis)
     - [Distribution](#distribution)
     - [T-Test](#t-test)
+- [Logistic Model](#logistic-model)
 <br />
 <br />
 <br />
@@ -132,6 +133,32 @@ GT: **2.5269360674271627e-40** <br />
 PT: **7.822031090768901e-09** <br />
 AGE: **4.113012469721914e-06** <br />
 LANG: **0.6882465259249742** <br />
+<br />
+<br />
+<br />
+
+***
+## ***Logistic Model***
+***
+**POAS** <br />
+Single Logistic Regression Model PSYOP <br />
+![](images/models/poas_single_curve.png)
+<br />
+
+Logistic Regression with KFold <br />
+![](images/models/poas_multi_curve.png)
+<br />
+<br />
+
+**SFAS** <br />
+Single Logistic Regression Model PSYOP <br />
+![](images/models/sfas_single_curve.png)
+<br />
+
+Logistic Regression with KFold <br />
+![](images/models/sfas_multi_curve.png)
+
+
 
 
 

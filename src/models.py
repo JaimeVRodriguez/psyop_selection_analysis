@@ -5,9 +5,9 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_curve, accuracy_score, precision_score, recall_score, auc
 from sklearn.model_selection import train_test_split, KFold
 from sklearn.preprocessing import Normalizer
-seed = 8
+seed = 16486415
 
-def regression_model(X_train, X_test, y_train, y_test):
+def regression_model(X_train, X_test, y_train, y_test, title, subtitle=None):
     model = LogisticRegression(random_state=seed).fit(X_train, y_train)
 
     y_probs = model.predict_proba(X_test)
@@ -18,20 +18,23 @@ def regression_model(X_train, X_test, y_train, y_test):
     fpr, tpr, thresholds = roc_curve(y_test, y_hat)
     roc_auc = auc(fpr, tpr)
 
-    plt.plot(fpr, tpr, label=f'ROC Curve {roc_auc:.2f}')
+    plt.plot(fpr, tpr, label=f'AUC Score: {roc_auc:.2f}')
     plt.plot([0, 1], [0, 1], 'k--')
+    plt.title(title, loc='left', size=18, fontweight='bold')
     plt.legend()
 
     accuracy = accuracy_score(y_test, y_pred)*100
     precision = precision_score(y_test, y_pred)
     recall = recall_score(y_test, y_pred)
-    print(f'Test accuracy: {accuracy:.2f}%')
-    print(f'Test precision: {precision:.2f}')
-    print(f'Test recall: {recall:.2f}')
 
-def multiple_regression_model(X, y, n_splits):
+    plt.annotate(f'Test accuracy: {accuracy:.2f}%', (0.65, 0.15), xycoords='axes fraction')
+    plt.annotate(f'Test precision: {precision:.2f}', (0.65, 0.10), xycoords='axes fraction')
+    plt.annotate(f'Test recall: {recall:.2f}', (0.65, 0.05), xycoords='axes fraction')
+
+def multiple_regression_model(X, y, n_splits, title):
     X = X.values
     y = y.values
+    X = Normalizer().fit_transform(X)
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.2, stratify=y, random_state=seed)
     accuracy, precision, recall = [], [], []
     kf = KFold(n_splits=n_splits)
@@ -51,20 +54,24 @@ def multiple_regression_model(X, y, n_splits):
         roc_auc = auc(fpr, tpr)
         plt.plot(fpr, tpr, label='Fold' + f' {counter}: ' + 'Area = %0.2f' % roc_auc)
         plt.plot([0, 1], [0, 1], 'k--')  # random predictions curve
+        plt.title(title, loc='left', size=18, fontweight='bold')
         plt.legend()
         
         accuracy.append(accuracy_score(y_fold_test, y_pred))
         precision.append(precision_score(y_fold_test, y_pred))
         recall.append(recall_score(y_fold_test, y_pred))
-        
-        avg_accuracy = np.mean(accuracy)
-        avg_precision = np.mean(precision)
-        avg_recall = np.mean(recall)
+    
 
         counter += 1
 
-    plt.title('ROC Curve', loc='left', size=18, fontweight='bold')
-        
-    print(f'Mean Accuracy: {(avg_accuracy * 100):.2f}%')
-    print(f'Mean Precision: {avg_precision:.2f}')
-    print(f'Mean Recall: {avg_recall:.2f}')
+    avg_accuracy = np.max(accuracy)*100
+    avg_precision = np.max(precision)
+    avg_recall = np.max(recall)
+    fold = accuracy.index(np.max(accuracy))+1
+
+    plt.title(title, loc='left', size=18, fontweight='bold')
+
+    plt.annotate(f'Fold: {fold}', (0.65, 0.20), xycoords='axes fraction')
+    plt.annotate(f'Test accuracy: {avg_accuracy:.2f}%', (0.65, 0.15), xycoords='axes fraction')
+    plt.annotate(f'Test precision: {avg_precision:.2f}', (0.65, 0.10), xycoords='axes fraction')
+    plt.annotate(f'Test recall: {avg_recall:.2f}', (0.65, 0.05), xycoords='axes fraction')
