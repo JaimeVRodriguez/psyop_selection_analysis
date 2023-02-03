@@ -141,14 +141,12 @@ LANG: **0.6882465259249742** <br />
 ## ***Logistic Model***
 ***
 **POAS** <br />
-### Key Features
-<span style='color:green'> **Key Highlights** </span> <br />
-5 most important features
-- Whether someone is **Airborne** qualified
+### <span style='color:green'> **Significant Features** </span> <br />
+- Whether someone is **AIRBORNE** qualified
+- Someones **AGE**
 - **GT** Score
 - **SC** Score
 - Whether someone needed a **Waiver**
-- Someones **AGE**
 
 Single Logistic Regression Model PSYOP <br />
 ![](images/models/poas_single_curve.png)
@@ -160,6 +158,15 @@ Logistic Regression with KFold <br />
 <br />
 
 **SFAS** <br />
+### <span style='color:green'> **Significant Features** </span> <br />
+- Someones **RANK**
+- Whether someone is **AIRBORNE** qualified
+- Whether someone is **RANGER** qualified
+- The amount of **DEPENDENTS** someone has
+- Someones **AGE**
+- **ST** Score
+- Whether someone needed a **WAIVER**
+
 Single Logistic Regression Model PSYOP <br />
 ![](images/models/sfas_single_curve.png)
 <br />
