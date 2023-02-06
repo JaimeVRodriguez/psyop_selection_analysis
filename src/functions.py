@@ -115,6 +115,13 @@ def sig_feature_split(df, target):
     X_test, X_train, y_test, y_train = train_split(X2, y)
     return X_test, X_train, y_test, y_train
 
+def outcome_split(df, column, val):
+    selected = equal_column_val(df, column, val)
+    not_selected = not_column_val(df, column, val)
+
+    split = [selected[column].count(), not_selected[column].count()]
+    return split
+
 
 
 
