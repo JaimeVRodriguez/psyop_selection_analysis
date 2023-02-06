@@ -45,7 +45,7 @@ def regression_model(X_train, X_test, y_train, y_test, title, subtitle=None):
     fpr, tpr, thresholds = roc_curve(y_test, y_hat)
     roc_auc = auc(fpr, tpr)
 
-    plt.plot(fpr, tpr, label=f'AUC Score: {roc_auc:.2f}')
+    plt.plot(fpr, tpr, label=f'Score: {roc_auc:.2f}')
     plt.plot([0, 1], [0, 1], 'k--')
     plt.title(title, loc='left', size=18, fontweight='bold')
     plt.legend()
@@ -98,7 +98,7 @@ def multiple_regression_model(X, y, n_splits, title):
 
         fpr, tpr, thresholds = roc_curve(y_fold_test, y_hat)
         roc_auc = auc(fpr, tpr)
-        plt.plot(fpr, tpr, label='Fold' + f' {counter}: ' + 'Area = %0.2f' % roc_auc)
+        plt.plot(fpr, tpr, label='Fold' + f' {counter} ' + 'Score: %0.2f' % roc_auc)
         plt.plot([0, 1], [0, 1], 'k--')  # random predictions curve
         plt.title(title, loc='left', size=18, fontweight='bold')
         plt.legend()

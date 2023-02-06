@@ -118,7 +118,6 @@ def sig_feature_split(df, target):
 def outcomes(df, column, value):
     selected = equal_column_val(df, column, value)
     not_selected = not_column_val(df, column, value)
-
     split = [selected[column].count(), not_selected[column].count()]
     return split, selected, not_selected
 
