@@ -2,6 +2,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 def read_excel_files(filepath, filenames):
+    '''
+    Parameters
+    filepath (str): The file path where the Excel files are located.
+    filenames (list of str): A list of filenames for the Excel files to be read in.
+    
+    This funciton returns single DataFrame that is created by concatenating the data from the input Excel files.'''
     dfs = []
     for i, filename in enumerate(filenames):
         file = filepath + '/' + filename
