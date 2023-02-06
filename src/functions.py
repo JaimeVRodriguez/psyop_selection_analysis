@@ -41,7 +41,7 @@ def ttest(df1, df2, columns):
         tests.append(val)
     return tests
 
-def combined(df_list):
+def combined_df(df_list):
     df = pd.concat(df_list, axis=0, ignore_index=True)
     return df
 
@@ -115,18 +115,23 @@ def sig_feature_split(df, target):
     X_test, X_train, y_test, y_train = train_split(X2, y)
     return X_test, X_train, y_test, y_train
 
-def outcome_split(df, column, val):
-    selected = equal_column_val(df, column, val)
-    not_selected = not_column_val(df, column, val)
+def outcomes(df, column, value):
+    selected = equal_column_val(df, column, value)
+    not_selected = not_column_val(df, column, value)
 
     split = [selected[column].count(), not_selected[column].count()]
-    return split
+    return split, selected, not_selected
 
 def age_counts(df1, df2, column):
     ages1 = df1.groupby(column).size().reset_index(name='counts')
     ages2 = df2.groupby(column).size().reset_index(name='counts')
     return ages1, ages2
 
+def combined_features(df1, df2, column, value):
+    both = [df1, df2]
+    combined = combined_df(both)
+    combined_selected = equal_column_val(combined, column, value)
+    return combined, combined_selected
 
 
 
