@@ -15,6 +15,9 @@ TO BE OR NOT TO BE SELECTED
     - [Distribution](#distribution)
     - [T-Test](#t-test)
 - [Logistic Model](#logistic-model)
+    - [POAS](#poas)
+    - [SFAS](#sfas)
+    - [Significant Features](#significant-features)
 <br />
 <br />
 <br />
@@ -137,7 +140,7 @@ LANG: **0.6882465259249742** <br />
 ***
 ## ***Logistic Model***
 ***
-**POAS** <br />
+### **POAS** <br />
 ### <span style='color:green'> **Significant Features** </span> <br />
 - Whether someone is **AIRBORNE** qualified
 - Someones **AGE**
@@ -154,7 +157,7 @@ Logistic Regression with KFold <br />
 <br />
 <br />
 
-**SFAS** <br />
+### **SFAS** <br />
 ### <span style='color:green'> **Significant Features** </span> <br />
 - Someones **RANK**
 - Whether someone is **AIRBORNE** qualified
@@ -170,5 +173,18 @@ Single Logistic Regression Model PSYOP <br />
 
 Logistic Regression with KFold <br />
 ![](images/models/sfas_multi_curve.png)
+<br />
+<br />
+<br />
 
+### ***Significant Features***
+Model with all features only performed slightly better than chance. Meaning there is no better result than a random guess. There could be a couple of different factors. Lack of data, only 10,000 records is not a sufficiant amount in order to properly train a model. 
+Secondly, there are additional factors that should be included or considered when determining the selection results of an individual. These features include things like team work, leadership, communication, etc.
+
+However, when narrowing down the model to only existing features that are significant, the model does perform better. However, one must take into consideration what they want out of the model. A predictive model is not always the "best" model.
+
+<p float='left'>
+    <img src='images/models/poas_sig_feature.png' width='500' />
+    <img src='images/models/sfas_sig_feature.png' width='500' />
+</p>
 
