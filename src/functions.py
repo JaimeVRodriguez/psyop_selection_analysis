@@ -122,6 +122,11 @@ def outcome_split(df, column, val):
     split = [selected[column].count(), not_selected[column].count()]
     return split
 
+def age_counts(df1, df2, column):
+    ages1 = df1.groupby(column).size().reset_index(name='counts')
+    ages2 = df2.groupby(column).size().reset_index(name='counts')
+    return ages1, ages2
+
 
 
 
