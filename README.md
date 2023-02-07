@@ -114,25 +114,40 @@ Due to the aggregation process of this data, there were several human errors and
 ***
 ## ***Hypothesis***
 ***
-$H_O$: No single feature determines whether someone is selected <br />
-$H_A$: Certain features determines whether someone is selected
+$H_O$: GT Score does not determine whether someone is selected <br />
+$H_A$: GT Score determines whether someone is selected
+
+$H_O$: PT Score does not determine whether someone is selected <br />
+$H_A$: PT Score determines whether someone is selected
+
+$H_O$: Age does not determine whether someone is selected <br />
+$H_A$: Age determines whether someone is selected
+
+$H_O$: Exisiting Language skill does not determine whether someone is selected <br />
+$H_A$: Exisiting Language skill determines whether someone is selected
 <br />
 <br />
 <br />
-
-### Distribution
-
-![](images/distributions.png)
-
 
 ### T-Test
 T-Test conducted on features based on whether or not an individual was selected.
 
 The following are the p-values with their corresponding feature: <br />
 GT: **2.5269360674271627e-40** <br />
+- Reject $H_O$
+
 PT: **7.822031090768901e-09** <br />
+- Reject $H_O$
+
 AGE: **4.113012469721914e-06** <br />
+- Reject $H_O$
+
 LANG: **0.6882465259249742** <br />
+- Cannot reject $H_O$
+
+### Distribution
+
+![](images/distributions.png)
 <br />
 <br />
 <br />
