@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import seaborn as sns
@@ -105,10 +106,14 @@ def violin_plot(x, y, data, title, xlabel, ylabel):
 def raincloud_plot(x, y, data, title, xlabel, ylabel):
     fig, ax = plt.subplots()
     ax = pt.RainCloud(data=data, x=x, y=y, orient='h', bw=.1, ax=ax)
+    mean = np.mean(x)
     sns.despine()
+    
     ax.set_title(title, loc='left', size=18, fontweight='bold')
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
+
+    ax.axvline(mean, color='r', linestyle='--')
 
 def select_correlation(df, title, xlabel, ylabel):
     '''
