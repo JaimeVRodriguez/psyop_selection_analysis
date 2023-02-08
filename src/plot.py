@@ -111,7 +111,7 @@ def raincloud_plot(x, y, data, title, xlabel, ylabel):
     means = data.groupby(x)[y].mean()
     maxs = data.groupby(x)[y].max()
 
-    ax.plot(means, means.index, '^', label='Median', color='b')
+    ax.plot(means, means.index, '^', label='Mean', color='b')
     ax.plot(maxs, maxs.index, 'o', label='Max', color='r')
     ax.legend()
     
