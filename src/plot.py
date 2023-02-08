@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import seaborn as sns
+import ptitprince as pt
 
 import functions
 
@@ -97,6 +98,14 @@ def violin_plot(x, y, data, title, xlabel, ylabel):
     ax.set_xlabel(xlabel) and ax.set_ylabel(ylabel), respectively.'''
     fig, ax = plt.subplots()
     sns.violinplot(x=x, y=y, data=data, split=True, showmedians=True, ax=ax)
+    ax.set_title(title, loc='left', size=18, fontweight='bold')
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel)
+
+def raincloud_plot(x, y, data, title, xlabel, ylabel):
+    fig, ax = plt.subplots()
+    ax = pt.RainCloud(data=data, x=x, y=y, orient='h', bw=.1, ax=ax)
+    sns.despine()
     ax.set_title(title, loc='left', size=18, fontweight='bold')
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
