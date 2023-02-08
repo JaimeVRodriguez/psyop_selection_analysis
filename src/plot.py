@@ -106,14 +106,29 @@ def violin_plot(x, y, data, title, xlabel, ylabel):
 def raincloud_plot(x, y, data, title, xlabel, ylabel):
     fig, ax = plt.subplots()
     ax = pt.RainCloud(data=data, x=x, y=y, orient='h', bw=.1, ax=ax)
-    mean = np.mean(x)
     sns.despine()
+
+    means = data.groupby(x)[y].mean()
+    maxs = data.groupby(x)[y].max()
+
+    ax.plot(means, means.index, '^', label='Median', color='b')
+    ax.plot(maxs, maxs.index, 'o', label='Max', color='r')
+    ax.legend()
     
     ax.set_title(title, loc='left', size=18, fontweight='bold')
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
 
-    ax.axvline(mean, color='r', linestyle='--')
+def raincloud_triple(x, y1, y2, y3, data, data2):
+    fig, ax = plt.subplots(3,1)
+    ax[0] = pt.RainCloud(data=data2, x=x, y=y1, orient='h', bw=.1, ax=ax[0])
+    ax[1] = pt.RainCloud(data=data, x=x, y=y2, orient='h', bw=.1, ax=ax[1])
+    ax[2] = pt.RainCloud(data=data, x=x, y=y3, orient='h', bw=.1, ax=ax[2])
+    sns.despine()
+
+
+
+    
 
 def select_correlation(df, title, xlabel, ylabel):
     '''
