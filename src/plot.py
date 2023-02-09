@@ -104,31 +104,50 @@ def violin_plot(x, y, data, title, xlabel, ylabel):
     ax.set_ylabel(ylabel)
 
 def raincloud_plot(x, y, data, title, xlabel, ylabel):
+    '''
+    Parameters:
+    `x`: the name of the column in the data to be used as the x-axis data
+    `y`: the name of the column in the data to be used as the y-axis data
+    `data`: a pandas data frame containing the data to be plotted
+    `title`: a string specifying the title of the plot
+    `xlabel`: a string specifying the x-axis label
+    `ylabel`: a string specifying the y-axis label
+
+    The function creates a raincloud plot using pt.RainCloud() function. The RainCloud function generates 
+    a plot that displays the distribution of a numeric variable across multiple categories in a compact 
+    manner, with a violin plot showing the density of the data, a box plot showing the median, interquartile 
+    range and outliers and a set of individual points showing the individual data points.'''
     fig, ax = plt.subplots()
     ax = pt.RainCloud(data=data, x=x, y=y, orient='h', bw=.1, ax=ax)
     sns.despine()
-
     means = data.groupby(x)[y].mean()
     maxs = data.groupby(x)[y].max()
-
     ax.plot(means, means.index, '^', label='Mean', color='b')
     ax.plot(maxs, maxs.index, 'o', label='Max', color='r')
     ax.legend()
-    
     ax.set_title(title, loc='left', size=18, fontweight='bold')
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
 
 def raincloud_triple(x, y1, y2, y3, data, data2):
+    '''
+    Parameters:
+    `x`: the name of the column in the data to be used as the x-axis data
+    `y1`: the name of the first column in the data to be used as the y-axis data
+    `y2`: the name of the second column in the data to be used as the y-axis data
+    `y3`: the name of the third column in the data to be used as the y-axis data
+    `data`: a pandas data frame containing the data to be plotted
+    `data2`: a pandas data frame containing additional data to be plotted
+
+    The function creates three raincloud plots using pt.RainCloud() function. The RainCloud function generates 
+    a plot that displays the distribution of a numeric variable across multiple categories in a compact manner, 
+    with a violin plot showing the density of the data, a box plot showing the median, interquartile range and 
+    outliers and a set of individual points showing the individual data points.'''
     fig, ax = plt.subplots(3,1)
     ax[0] = pt.RainCloud(data=data2, x=x, y=y1, orient='h', bw=.1, ax=ax[0])
     ax[1] = pt.RainCloud(data=data, x=x, y=y2, orient='h', bw=.1, ax=ax[1])
     ax[2] = pt.RainCloud(data=data, x=x, y=y3, orient='h', bw=.1, ax=ax[2])
     sns.despine()
-
-
-
-    
 
 def select_correlation(df, title, xlabel, ylabel):
     '''
