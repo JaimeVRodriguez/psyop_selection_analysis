@@ -160,7 +160,7 @@ def select_correlation(df, title, xlabel, ylabel):
     This function creates a heatmap of the correlation matrix between the SELECT column 
     and all other columns in the input DataFrame 'df'.
     '''
-    corr_matrix = df.corr().loc[:, ['SELECT']]
+    corr_matrix = df.corr().loc[:, ['SELECT']].abs().sort_values(by='SELECT', axis=0, ascending=False)
     fig, ax = plt.subplots()
     sns.heatmap(corr_matrix, annot=True, ax=ax)
     ax.set_title(title, loc='left', size=18, fontweight='bold')
